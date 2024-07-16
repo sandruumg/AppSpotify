@@ -5,6 +5,9 @@ import { CommonModule } from '@angular/common';
 import { HeaderUserComponent } from './components/header-user/header-user.component';
 import { CardPlayerComponent } from './components/card-player/card-player.component';
 import { SectionGenericComponent } from './components/section-generic/section-generic.component';
+import { RouterModule } from '@angular/router';
+import { OrderListPipe } from './pipes/order-list.pipe';
+import { ImgBrokenDirective } from './directives/img-broken.directive';
 
 
 
@@ -12,18 +15,24 @@ import { SectionGenericComponent } from './components/section-generic/section-ge
   declarations: [ ],
   imports: [
     CommonModule,
+    RouterModule,
     SideBarComponent,
     MediaPlayerComponent,
     HeaderUserComponent,
     CardPlayerComponent,
-    SectionGenericComponent
+    SectionGenericComponent,
+    OrderListPipe,
+    ImgBrokenDirective
   ],
   exports: [
+    RouterModule,
     SideBarComponent,
     MediaPlayerComponent,
     HeaderUserComponent,
     CardPlayerComponent,
-    SectionGenericComponent
+    SectionGenericComponent,
+    OrderListPipe,
+    ImgBrokenDirective
   ]
 })
 export class SharedModule { }
