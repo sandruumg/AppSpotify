@@ -22,6 +22,9 @@
             <div *ngIf="">
                 Ocurrio un error con tu email o password
             </div>
+            <div *ngIf="errorSession">
+                Ocurrió un error con tu email o password
+            </div>
             <div class="form-action">
                 <button [disabled]="formLogin.invalid" class="login social-btn">Iniciar sesión</button>
             </div>

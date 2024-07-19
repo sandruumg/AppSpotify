@@ -17,7 +17,7 @@ export class SideBarComponent {
 
   customOptions: Array<any> = []
 
-  constructor(private router:Router){
+  constructor(private router : Router){
 
   }
   ngOnInit(): void {
@@ -25,7 +25,7 @@ export class SideBarComponent {
       {
         name: 'Home',
         icon: 'uil uil-estate',
-        router: ['/']
+        router: ['/', 'auth']
       },
       {
         name: 'Buscar',

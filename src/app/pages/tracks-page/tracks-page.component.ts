@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { SharedModule } from "../../shared/shared.module";
 import { SectionGenericComponent } from "../../shared/components/section-generic/section-generic.component";
-import * as dataRaw from "../../data/tracks.json";
 import { TrackModel } from '../../core/models/tracks.model';
+import { TrackService } from '../../modules/tracks/services/track.service';
+import { Subscription } from 'rxjs';
+import { response } from 'express';
 
 @Component({
   selector: 'app-tracks-page',
@@ -12,11 +14,31 @@ import { TrackModel } from '../../core/models/tracks.model';
   styleUrl: './tracks-page.component.css'
 })
 export class TracksPageComponent {
-  mockTracksList: Array<TrackModel> = [  ]
+  tracksTrending: Array<TrackModel> = [  ]
+  tracksRandom: Array<TrackModel> = [  ]
 
-  ngOnInit(): void{
-    const {data}: any = (dataRaw as any).default
-    this.mockTracksList = data
+  listObervers$: Array<Subscription> = []
+
+  constructor(private trackService:TrackService){ }
+
+  ngOnInit(): void {
+    this.loadDataAll() //TODO 📌📌
+    this.loadDataRandom() //TODO 📌📌
+  }
+
+  async loadDataAll(): Promise<any> {
+    this.tracksTrending = await this.trackService.getAllTracks$().toPromise()
+
+  }
+
+  loadDataRandom(): void {
+    this.trackService.getAllRandom$()
+      .subscribe((response: TrackModel[]) => {
+        this.tracksRandom = response
+      })
+  }
+
+  onDestroy():void{
   }
 
 }

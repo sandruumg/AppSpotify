@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './modules/home/pages/home-page/home-page.component';
+import { SessionGuard } from './core/guards/session.guard';
 
 // equivale a app-routing.modules.ts
 
@@ -11,7 +12,8 @@ export const routes: Routes = [
   {
     path: '',
     component:HomePageComponent,
-    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule)
+    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
+    canActivate:[SessionGuard]
   },
     // ejemplo de ruta 
     // { path: 'fruta', component: FrutaComponent },
