@@ -9,12 +9,14 @@ export const routes: Routes = [
     path: 'auth',
     loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
   },
+  
   {
     path: '',
     component:HomePageComponent,
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
     canActivate:[SessionGuard]
   },
+
     // ejemplo de ruta 
     // { path: 'fruta', component: FrutaComponent },
     // Otras rutas pueden agregarse aquí

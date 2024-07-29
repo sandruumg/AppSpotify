@@ -19,7 +19,7 @@ export class CardPlayerComponent {
   @Input() track:TrackModel = {_id:0, name:'', album:'', url:'', cover: ''};
 
   sendPlay(track:TrackModel):void{
-    this.multimediaService.callback.emit(track)
+    this.multimediaService.trackInfo$.next(track)
   }
 }
 

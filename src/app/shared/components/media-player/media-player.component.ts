@@ -13,17 +13,10 @@ import { Subscription } from 'rxjs';
   styleUrl: './media-player.component.css'
 })
 export class MediaPlayerComponent implements OnInit, OnDestroy {
-  mockCover : TrackModel = {
-    cover: 'https://i.scdn.co/image/ab67616d0000b273bfb94590c914538b193f6931',
-    album: 'mp3',
-    name: 'Emilia',
-    url: 'http://localhost/track.mp3',
-    _id: 1
-  }
-
+  
   listObservers$: Array<Subscription> = []
 
-  constructor(private multimediaService:MultimediaService){ }
+  constructor(public multimediaService:MultimediaService){ }
 
   ngOnDestroy(): void {
     this.listObservers$.forEach(u=>u.unsubscribe())
@@ -31,12 +24,6 @@ export class MediaPlayerComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit():void{
-    // programación reactiva 
-    const observer1$:Subscription = this.multimediaService.callback.subscribe(
-      (response: TrackModel)=>{
-        console.log('Recibiendo cancion....', response)
-      }
-    )
-    this.listObservers$ = [observer1$]
+    
   }
 }
