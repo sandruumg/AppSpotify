@@ -18,7 +18,7 @@ export class MultimediaService {
   public playerStatus$:BehaviorSubject<string> = new BehaviorSubject('paused') 
   public playerPercentage$:BehaviorSubject<number> = new BehaviorSubject(0) 
 
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://api-nm073yv2t-sandras-projects-b3023a25.vercel.app/api/1.0/tracks';
 
   constructor() { 
     this.audio = new Audio()
