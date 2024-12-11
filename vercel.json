@@ -1,0 +1,13 @@
+{
+    "builds": [
+      {
+        "src": "dist/browser/**/*",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "server.ts",
+        "use": "@vercel/node"
+      }
+    ]
+  }
+  
