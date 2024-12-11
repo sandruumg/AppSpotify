@@ -1,13 +1,12 @@
 {
-    "builds": [
-      {
-        "src": "dist/browser/**/*",
-        "use": "@vercel/static"
-      },
-      {
-        "src": "server.ts",
-        "use": "@vercel/node"
-      }
-    ]
-  }
-  
+  "rewrites": [
+    {
+      "source": "/auth/login",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
