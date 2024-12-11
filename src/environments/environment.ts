@@ -1,5 +1,5 @@
 export const environment = {
     production: false,
-    api: 'http://localhost:3000/api/1.0'
+    api: 'https://api-2o1ky55kb-sandras-projects-b3023a25.vercel.app/api/1.0'
   };
   
